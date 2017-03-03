@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,Image } from 'react-native';
+import { View,Text,Image,ActivityIndicator } from 'react-native';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
@@ -19,7 +19,12 @@ class ShowImage extends Component {
     }
     render() {
         if(this.props.data.loading){
-            return(<Text>Loading</Text>)
+            return(
+                <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                    <ActivityIndicator />
+                </View>
+                
+            )
         }
             return (
             <View style={{
