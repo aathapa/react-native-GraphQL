@@ -3,6 +3,7 @@ import { Router,Scene } from 'react-native-router-flux';
 import ApolloClient, {createNetworkInterface} from 'apollo-client'
 import { ApolloProvider } from 'react-apollo';
 import ShowImage from './containers/ShowImage';
+import MainPage from './MainPage';
 
 const client = new ApolloClient({
     networkInterface: createNetworkInterface({ 
@@ -16,7 +17,9 @@ class AppRouter extends Component {
             <ApolloProvider client={client}>
                 <Router>
                     <Scene key="root">
-                        <Scene key="count" component={ShowImage} title="Show Image" />
+
+                        <Scene key="mainpage" component={MainPage} hideNavBar />
+                        <Scene key="showimage" component={ShowImage} title="Show Image" />
                     </Scene>
                 </Router>
             </ApolloProvider>
